@@ -33,13 +33,13 @@ parser.add_option("-g", "--geonamesonly", dest="geonamesonly", action="store_tru
 
 (options, args) = parser.parse_args()
 
-mongo_version_str = subprocess.Popen('mongod --version', stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True).stdout.readline().split(' v')[-1]
-print "Mongo version string is: "
-print(mongo_version_str)
-mongo_version = mongo_version_str.split('.')
-if mongo_version[0] < 2 or mongo_version[1] < 4:
-  print 'need at least mongo 2.4, you have: %s' % mongo_version_str
-  sys.exit(1)
+# mongo_version_str = subprocess.Popen('mongod --version', stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True).stdout.readline().split(' v')[-1]
+# print "Mongo version string is: "
+# print(mongo_version_str)
+# mongo_version = mongo_version_str.split('.')
+# if mongo_version[0] < 2 or mongo_version[1] < 4:
+#   print 'need at least mongo 2.4, you have: %s' % mongo_version_str
+#   sys.exit(1)
 
 user_specified_basepath = False
 basepath = ''
