@@ -83,13 +83,6 @@ jvm_args = []
 if options.geonamesonly:
   jvm_args.append("-DgeonameidNamespace=0")
 
-if options.reload_data and not options.yes_i_am_sure:
-  if raw_input('Are you suuuuuure you want to drop your mongo data? Type "yes" to continue: ') != 'yes':
-    print "Bailing."
-    print
-    print "re-run with --noreload if you want to keep your mongo data around instead of rebuilding it"
-    sys.exit(1)
-
 cmd = './sbt %s "indexer/run-main com.foursquare.twofishes.importers.geonames.GeonamesParser %s --hfile_basepath %s %s"' % (' '.join(jvm_args), cmd_opts, basepath, ' '.join(args))
 print(cmd)
 
